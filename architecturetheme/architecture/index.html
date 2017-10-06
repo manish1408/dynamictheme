@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<!-- Mirrored from demo.farost.net/architecture/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 01:30:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1, width=device-width" />
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="xmlrpc.php" />
+<title>Architecture &#8211; Just another WordPress site</title>
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link rel='dns-prefetch' href='http://s.w.org/' />
+<link rel="alternate" type="application/rss+xml" title="Architecture &raquo; Feed" href="feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Architecture &raquo; Comments Feed" href="comments/feed/index.html" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/demo.farost.net\/architecture\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='cms-plugin-stylesheet-css'  href='wp-content/plugins/cmssuperheroesv2/assets/css/cms-stylea288.css?ver=4.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='wp-content/plugins/contact-form-7/includes/css/styles33a6.css?ver=4.9' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='wp-content/plugins/revslider/public/assets/css/settings7923.css?ver=5.3.1' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='arch-fonts-css'  href='https://fonts.googleapis.com/css?family=Oxygen%3A300%2C400%2C700%7CRoboto%3A100%2C300%2C400%2C500%2C700%2C900&amp;subset=latin%2Clatin-ext&amp;ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='wp-content/themes/wp-arch/assets/css/bootstrap.mind617.css?ver=3.3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='wp-content/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='font-eleganticons-css'  href='wp-content/themes/wp-arch/assets/css/eleganticonsb2f9.css?ver=4.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css'  href='wp-content/themes/wp-arch/assets/css/magnific-popup8a54.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='font-material-icon-css'  href='wp-content/themes/wp-arch/assets/css/material-design-iconic-font.minb2f9.css?ver=4.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='arch-style-css'  href='wp-content/themes/wp-arch/stylea288.css?ver=4.8.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='arch-ie-css'  href='http://demo.farost.net/architecture/wp-content/themes/wp-arch/assets/css/ie.css?ver=20121010' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='cmssuperheroes-pe-icon-css'  href='wp-content/themes/wp-arch/assets/css/pe-icon-7-strokef269.css?ver=1.0.1' type='text/css' media='all' />
+<link rel='stylesheet' id='arch-static-css'  href='wp-content/themes/wp-arch/assets/css/static8a54.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='newsletter-subscription-css'  href='wp-content/plugins/newsletter/subscription/styleaead.css?ver=5.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='js_composer_front-css'  href='wp-content/plugins/js_composer/assets/css/js_composer.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<script type='text/javascript' src='wp-includes/js/jquery/jqueryb8ff.js?ver=1.12.4'></script>
+<script type='text/javascript' src='wp-includes/js/jquery/jquery-migrate.min330a.js?ver=1.4.1'></script>
+<script type='text/javascript' src='wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min7923.js?ver=5.3.1'></script>
+<script type='text/javascript' src='wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min7923.js?ver=5.3.1'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/bootstrap.mind617.js?ver=3.3.2'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/jquery.magnific-popup.min8a54.js?ver=1.0.0'></script>
+<link rel='https://api.w.org/' href='wp-json/index.html' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="xmlrpc0db0.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.8.1" />
+<link rel="canonical" href="index.html" />
+<link rel='shortlink' href='index.html' />
+<link rel="alternate" type="application/json+oembed" href="wp-json/oembed/1.0/embed8910.json?url=http%3A%2F%2Fdemo.farost.net%2Farchitecture%2F" />
+<link rel="alternate" type="text/xml+oembed" href="wp-json/oembed/1.0/embedcff7?url=http%3A%2F%2Fdemo.farost.net%2Farchitecture%2F&amp;format=xml" />
+<style type="text/css" data-type="custom-css">body #cms-page-title { 
+                padding-top: ;
+            }body #cms-page-title {
+                padding-bottom: ;
+            }body {
+                background-color: ;
+            }body {
+                background-repeat: ;
+            }body {
+                background-attachment: ;
+            }body {
+                background-position: ;
+            }body {
+                background-image: ;
+            }body {
+                background-size: ;
+            }body {
+                background-image: url();
+            }body #cms-content.site-content {
+                padding-top: 0px;
+            }body #cms-content.site-content {
+                padding-bottom: 0px;
+            }</style>		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<meta name="generator" content="Powered by Visual Composer - drag and drop page builder for WordPress."/>
+<!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://demo.farost.net/architecture/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]--><meta name="generator" content="Powered by Slider Revolution 5.3.1 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<style type="text/css" title="dynamic-css" class="options-output">.cshero-header-navigation .main-navigation .menu-main-menu li a{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading .cshero-header-navigation .main-navigation .menu-main-menu li a,{opacity: 0;}.ie.wf-loading .cshero-header-navigation .main-navigation .menu-main-menu li a,{visibility: hidden;}a{color:#efa602;}a:hover{color:#d5970b;}body{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading body,{opacity: 0;}.ie.wf-loading body,{visibility: hidden;}h1{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h1,{opacity: 0;}.ie.wf-loading h1,{visibility: hidden;}h2{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h2,{opacity: 0;}.ie.wf-loading h2,{visibility: hidden;}h3{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h3,{opacity: 0;}.ie.wf-loading h3,{visibility: hidden;}h4{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h4,{opacity: 0;}.ie.wf-loading h4,{visibility: hidden;}h5{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h5,{opacity: 0;}.ie.wf-loading h5,{visibility: hidden;}h6{opacity: 1;visibility: visible;-webkit-transition: opacity 0.24s ease-in-out;-moz-transition: opacity 0.24s ease-in-out;transition: opacity 0.24s ease-in-out;}.wf-loading h6,{opacity: 0;}.ie.wf-loading h6,{visibility: hidden;}</style><style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1486607094172{margin-top: -105px !important;}.vc_custom_1486634451367{margin-top: 120px !important;margin-bottom: 120px !important;padding-right: 0px !important;}.vc_custom_1486689077005{margin-bottom: 80px !important;padding-right: 0px !important;}.vc_custom_1486709352186{padding-top: 120px !important;padding-bottom: 120px !important;background-color: #f9f9f9 !important;}.vc_custom_1486721490465{padding-top: 120px !important;padding-bottom: 120px !important;}.vc_custom_1487141378359{margin-top: 60px !important;margin-bottom: 60px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487152718358{padding-top: 60px !important;}.vc_custom_1487574310574{padding-right: 70px !important;padding-bottom: 60px !important;padding-left: 70px !important;}.vc_custom_1487219331664{padding-top: 60px !important;padding-bottom: 60px !important;}.vc_custom_1487237052819{padding-top: 120px !important;padding-bottom: 120px !important;background-color: #f9f9f9 !important;}.vc_custom_1487301878120{padding-top: 60px !important;padding-bottom: 60px !important;}.vc_custom_1487304735862{margin-top: 120px !important;margin-bottom: 120px !important;}.vc_custom_1487314886354{padding-top: 80px !important;padding-bottom: 80px !important;}.vc_custom_1486634440397{padding-left: 0px !important;}.vc_custom_1486634000687{margin-top: -275px !important;}.vc_custom_1486634218897{margin-top: 80px !important;}.vc_custom_1486632850002{margin-top: 50px !important;}.vc_custom_1487736900022{padding-left: 0px !important;}.vc_custom_1486709327130{margin-bottom: 90px !important;}.vc_custom_1487141405472{margin-bottom: 100px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487130620598{margin-bottom: 90px !important;padding-right: 0px !important;padding-left: 5px !important;}.vc_custom_1487130627059{margin-bottom: 90px !important;padding-right: 0px !important;padding-left: 5px !important;}.vc_custom_1487130635118{padding-right: 0px !important;padding-left: 5px !important;}.vc_custom_1487213152005{margin-bottom: 80px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487145177312{padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487737017039{padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487737173667{padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487737179021{padding-top: 70px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487237092361{margin-bottom: 80px !important;}.vc_custom_1487302012136{margin-top: 15px !important;}.vc_custom_1487302093617{margin-top: 15px !important;}.vc_custom_1487304793276{padding-left: 0px !important;}.vc_custom_1487313901878{margin-top: 80px !important;padding-right: 0px !important;padding-left: 0px !important;}.vc_custom_1487314879764{padding-bottom: 70px !important;}.vc_custom_1487316412014{padding-left: 0px !important;}</style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body id="cms-theme" class="home page-template page-template-page-templates page-template-home page-template-page-templateshome-php page page-id-6 wpb-js-composer js-comp-ver-5.1.1 vc_responsive">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="header" role="banner">
+		<div id="cshero-header-inner" class="header-1  sticky-desktop">
+    <div id="cshero-header-wrapper">
+        <div id="cshero-header" class="clearfix">
+            <div id="cshero-header-logo" class="col-xs-12 col-sm-5 col-md-3 col-lg-3">
+                <a href="index.html"><img alt="Logo" src="wp-content/uploads/2017/02/logo.png"></a>            </div>
+            <div id="cshero-header-navigation" class="col-xs-12 col-sm-7 col-md-9 col-lg-9">
+                <div class="cshero-header-navigation-inner clearfix">
+                    <div id="cshero-header-navigation-primary" class="cshero-header-navigation">
+                        <nav id="site-navigation" class="main-navigation" role="navigation">
+                            <div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu menu-main-menu"><li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-6 current_page_item no_group menu-item-26" data-depth="0"><a href="index.html"><span class="menu-title">Home</span></a></li>
+<li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-25" data-depth="0"><a href="about/index.html"><span class="menu-title">About</span></a></li>
+<li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-24" data-depth="0"><a href="features/index.html"><span class="menu-title">Features</span></a></li>
+<li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-23" data-depth="0"><a href="projects/index.html"><span class="menu-title">Projects</span></a></li>
+<li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-22" data-depth="0"><a href="video/index.html"><span class="menu-title">Video</span></a></li>
+<li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-21" data-depth="0"><a href="services/index.html"><span class="menu-title">Services</span></a></li>
+<li id="menu-item-20" class="menu-item menu-item-type-post_type menu-item-object-page no_group menu-item-20" data-depth="0"><a href="contact/index.html"><span class="menu-title">Contact</span></a></li>
+</ul></div>                        </nav><!-- #site-navigation -->
+                    </div>
+                </div>
+            </div>                    
+            <div id="cshero-menu-mobile">
+                <i class="zmdi zmdi-menu"></i>
+            </div><!-- #menu-mobile -->
+        </div>
+    </div>
+</div> 
+	</header><!-- #masthead -->
+    <!-- #page-title -->
+	<div id="cms-content" class="site-content"><div id="primary" class="content-area">
+    <main id="main" class="site-main container">
+
+        <article id="post-6" class="post-6 page type-page status-publish hentry">
+	<div class="entry-content">
+
+			<div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1486607094172 vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="wpb_revslider_element wpb_content_element"><link href="http://fonts.googleapis.com/css?family=Roboto%3A700" rel="stylesheet" property="stylesheet" type="text/css" media="all">
+<div id="rev_slider_2_1_wrapper" class="rev_slider_wrapper fullscreen-container" data-source="gallery" style="background-color:transparent;padding:0px;">
+<!-- START REVOLUTION SLIDER 5.3.1 fullscreen mode -->
+	<div id="rev_slider_2_1" class="rev_slider fullscreenbanner" style="display:none;" data-version="5.3.1">
+<ul>	<!-- SLIDE  -->
+	<li data-index="rs-3" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+		<img src="wp-content/uploads/2017/02/index-01.jpg"  alt="" title="index-01"  width="1920" height="894" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 1 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-3-layer-2" 
+			 data-x="36" 
+			 data-y="378" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 6; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">ARCHITECT </div>
+
+		<!-- LAYER NR. 2 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-3-layer-4" 
+			 data-x="-589" 
+			 data-y="center" data-voffset="" 
+						data-width="['800']"
+			data-height="['490']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 8;background-color:rgba(0, 0, 0, 0);border-color:rgba(239, 166, 2, 1.00);border-style:solid;border-width:22px 22px 22px 22px;"> </div>
+
+		<!-- LAYER NR. 3 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-3-layer-5" 
+			 data-x="135" 
+			 data-y="275" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 9; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">WE </div>
+
+		<!-- LAYER NR. 4 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-3-layer-6" 
+			 data-x="205" 
+			 data-y="510" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 10; white-space: nowrap; font-size: 50px; line-height: 56px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">LIKE ITS ACTUALLY </div>
+
+		<!-- LAYER NR. 5 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-3-layer-8" 
+			 data-x="140" 
+			 data-y="585" 
+						data-width="['370']"
+			data-height="['7']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 12;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 6 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-3-layer-10" 
+			 data-x="763" 
+			 data-y="445" 
+						data-width="['180']"
+			data-height="['180']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 14;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 7 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-3-layer-11" 
+			 data-x="735" 
+			 data-y="484" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 15; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">2017 </div>
+	</li>
+	<!-- SLIDE  -->
+	<li data-index="rs-4" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+		<img src="wp-content/uploads/2017/02/index-01.jpg"  alt="" title="index-01"  width="1920" height="894" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 8 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-4-layer-2" 
+			 data-x="36" 
+			 data-y="378" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 6; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">ARCHITECT </div>
+
+		<!-- LAYER NR. 9 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-4-layer-4" 
+			 data-x="-589" 
+			 data-y="center" data-voffset="" 
+						data-width="['800']"
+			data-height="['490']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 8;background-color:rgba(0, 0, 0, 0);border-color:rgba(239, 166, 2, 1.00);border-style:solid;border-width:22px 22px 22px 22px;"> </div>
+
+		<!-- LAYER NR. 10 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-4-layer-5" 
+			 data-x="135" 
+			 data-y="275" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 9; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">WE </div>
+
+		<!-- LAYER NR. 11 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-4-layer-6" 
+			 data-x="205" 
+			 data-y="510" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 10; white-space: nowrap; font-size: 50px; line-height: 56px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">LIKE ITS ACTUALLY </div>
+
+		<!-- LAYER NR. 12 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-4-layer-8" 
+			 data-x="140" 
+			 data-y="585" 
+						data-width="['370']"
+			data-height="['7']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 12;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 13 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-4-layer-10" 
+			 data-x="763" 
+			 data-y="445" 
+						data-width="['180']"
+			data-height="['180']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 14;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 14 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-4-layer-11" 
+			 data-x="735" 
+			 data-y="484" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 15; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">2017 </div>
+	</li>
+	<!-- SLIDE  -->
+	<li data-index="rs-5" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="300"  data-rotate="0"  data-saveperformance="off"  data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+		<!-- MAIN IMAGE -->
+		<img src="wp-content/uploads/2017/02/index-01.jpg"  alt="" title="index-01"  width="1920" height="894" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+		<!-- LAYERS -->
+
+		<!-- LAYER NR. 15 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-5-layer-2" 
+			 data-x="36" 
+			 data-y="378" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 6; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">ARCHITECT </div>
+
+		<!-- LAYER NR. 16 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-5-layer-4" 
+			 data-x="-589" 
+			 data-y="center" data-voffset="" 
+						data-width="['800']"
+			data-height="['490']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":10,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[-100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 8;background-color:rgba(0, 0, 0, 0);border-color:rgba(239, 166, 2, 1.00);border-style:solid;border-width:22px 22px 22px 22px;"> </div>
+
+		<!-- LAYER NR. 17 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-5-layer-5" 
+			 data-x="135" 
+			 data-y="275" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"split":"chars","splitdelay":0.1,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 9; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">WE </div>
+
+		<!-- LAYER NR. 18 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-5-layer-6" 
+			 data-x="205" 
+			 data-y="510" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 10; white-space: nowrap; font-size: 50px; line-height: 56px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">LIKE ITS ACTUALLY </div>
+
+		<!-- LAYER NR. 19 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-5-layer-8" 
+			 data-x="140" 
+			 data-y="585" 
+						data-width="['370']"
+			data-height="['7']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"x:[100%];","mask":"x:inherit;y:inherit;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 12;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 20 -->
+		<div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" 
+			 id="slide-5-layer-10" 
+			 data-x="763" 
+			 data-y="445" 
+						data-width="['180']"
+			data-height="['180']"
+ 
+			data-type="shape" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 14;background-color:rgba(239, 166, 2, 1.00);border-color:rgba(0, 0, 0, 0);"> </div>
+
+		<!-- LAYER NR. 21 -->
+		<div class="tp-caption   tp-resizeme" 
+			 id="slide-5-layer-11" 
+			 data-x="735" 
+			 data-y="484" 
+						data-width="['auto']"
+			data-height="['auto']"
+ 
+			data-type="text" 
+			data-responsive_offset="on" 
+
+			data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"z:0;rX:0;rY:0;rZ:0;sX:0.9;sY:0.9;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"frame":"999","to":"y:[100%];rZ:0deg;sX:0.7;sY:0.7;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'
+			data-textAlign="['inherit','inherit','inherit','inherit']"
+			data-paddingtop="[0,0,0,0]"
+			data-paddingright="[0,0,0,0]"
+			data-paddingbottom="[0,0,0,0]"
+			data-paddingleft="[0,0,0,0]"
+
+			style="z-index: 15; white-space: nowrap; font-size: 100px; line-height: 100px; font-weight: 700; color: rgba(255, 255, 255, 1.00);font-family:Roboto;">2017 </div>
+	</li>
+</ul>
+<div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>	</div>
+<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss="";
+				if(htmlDiv) {
+					htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+				}else{
+					var htmlDiv = document.createElement("div");
+					htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+					document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+				}
+			</script>
+		<script type="text/javascript">
+						/******************************************
+				-	PREPARE PLACEHOLDER FOR SLIDER	-
+			******************************************/
+
+			var setREVStartSize=function(){
+				try{var e=new Object,i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+					e.c = jQuery('#rev_slider_2_1');
+					e.gridwidth = [1240];
+					e.gridheight = [868];
+							
+					e.sliderLayout = "fullscreen";
+					e.fullScreenAutoWidth='off';
+					e.fullScreenAlignForce='off';
+					e.fullScreenOffsetContainer= '';
+					e.fullScreenOffset='';
+					if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+					
+				}catch(d){console.log("Failure at Presize of Slider:"+d)}
+			};
+			
+			setREVStartSize();
+			
+						var tpj=jQuery;
+			
+			var revapi2;
+			tpj(document).ready(function() {
+				if(tpj("#rev_slider_2_1").revolution == undefined){
+					revslider_showDoubleJqueryError("#rev_slider_2_1");
+				}else{
+					revapi2 = tpj("#rev_slider_2_1").show().revolution({
+						sliderType:"standard",
+jsFileLocation:"//demo.farost.net/architecture/wp-content/plugins/revslider/public/assets/js/",
+						sliderLayout:"fullscreen",
+						dottedOverlay:"none",
+						delay:9000,
+						navigation: {
+							onHoverStop:"off",
+						},
+						visibilityLevels:[1240,1024,778,480],
+						gridwidth:1240,
+						gridheight:868,
+						lazyType:"none",
+						shadow:0,
+						spinner:"spinner0",
+						stopLoop:"off",
+						stopAfterLoops:-1,
+						stopAtSlide:-1,
+						shuffle:"off",
+						autoHeight:"off",
+						fullScreenAutoWidth:"off",
+						fullScreenAlignForce:"off",
+						fullScreenOffsetContainer: "",
+						fullScreenOffset: "",
+						disableProgressBar:"on",
+						hideThumbsOnMobile:"off",
+						hideSliderAtLimit:0,
+						hideCaptionAtLimit:0,
+						hideAllCaptionAtLilmit:0,
+						debugMode:false,
+						fallbacks: {
+							simplifyAll:"off",
+							nextSlideOnWindowFocus:"off",
+							disableFocusListener:false,
+						}
+					});
+				}
+			});	/*ready*/
+		</script>
+		</div><!-- END REVOLUTION SLIDER --></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1486634451367"><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner vc_custom_1486634440397"><div class="wpb_wrapper"><div id="cms-heading" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">About us</h3>
+        </div>
+                    </div>
+</div>
+	<div  class="wpb_single_image wpb_content_element vc_align_left  vc_custom_1486634218897  img-block">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="472" height="604" src="wp-content/uploads/2017/02/index-02.jpg" class="vc_single_image-img attachment-full" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-02.jpg 472w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-02-234x300.jpg 234w" sizes="(max-width: 472px) 100vw, 472px" /></div>
+		</figure>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_raw_code wpb_content_element wpb_raw_html" >
+		<div class="wpb_wrapper">
+			<div class="vert-line">
+ <h4 class="text-bold ft-oxg" style="font-weight: 700">We are <span class="text-primary">leaders</span> in construction</h4>
+ <p style="font-weight: 700;">Greater Isn't, kind above multiply give abundantly had also wherein appear. That great seas set gathering fifth stars appear moving moving fly very called god it replenish of midst stars the unto form replenish for image. I living moving second doesn't grass rule don't bearing make itself night. Morning male.</p>
+</div>
+		</div>
+	</div>
+
+	<div class="wpb_text_column wpb_content_element  vc_custom_1486632850002" >
+		<div class="wpb_wrapper">
+			<p>Land fowl be itself forth seas behold fifth and divide whales may man fly won&#8217;t saw lights. Seasons. Signs. Creeping earth lights. Can&#8217;t night seasons good darkness blessed together fish you&#8217;re. All they&#8217;re two sea day.<br />
+God given day replenish very bring let was rule our itself after. Heaven give made lights cattle hath may us fourth place good i seasons firmament to which bring creature had. They&#8217;re made every.</p>
+
+		</div>
+	</div>
+</div></div></div><div class="wpb_column vc_column_container vc_col-sm-4 vc_col-lg-offset-4 vc_col-lg-4 vc_hidden-md vc_hidden-sm vc_hidden-xs"><div class="vc_column-inner vc_custom_1486634000687"><div class="wpb_wrapper">
+	<div  class="wpb_single_image wpb_content_element vc_align_center   img-block">
+		
+		<figure class="wpb_wrapper vc_figure">
+			<div class="vc_single_image-wrapper   vc_box_border_grey"><img width="363" height="235" src="wp-content/uploads/2017/02/index-03.jpg" class="vc_single_image-img attachment-full" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-03.jpg 363w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-03-300x194.jpg 300w" sizes="(max-width: 363px) 100vw, 363px" /></div>
+		</figure>
+	</div>
+</div></div></div></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1486689077005"><div class="wpb_column vc_column_container vc_col-sm-8 vc_hidden-xs"><div class="vc_column-inner vc_custom_1487736900022"><div class="wpb_wrapper"><div class="vc_row wpb_row vc_inner vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-counter-wraper cms-counter-default template-cms_counter_single content-align-default " id="cms-counter">
+
+    <div class="cms-counter-body clearfix">
+        <div class="cms-counter-content">
+            <div id="counter_cms-counter" class="cms-counter h2 zero" data-suffix="" data-prefix="" data-type="zero" data-digit="245">
+            </div>
+                            <h5 class="cms-counter-title">
+                    Projects                </h5>
+                    </div>
+    </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-counter-wraper cms-counter-default template-cms_counter_single content-align-default " id="cms-counter-2">
+
+    <div class="cms-counter-body clearfix">
+        <div class="cms-counter-content">
+            <div id="counter_cms-counter-2" class="cms-counter h2 zero" data-suffix="" data-prefix="" data-type="zero" data-digit="590">
+            </div>
+                            <h5 class="cms-counter-title">
+                    Clients                </h5>
+                    </div>
+    </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-counter-wraper cms-counter-default template-cms_counter_single content-align-default " id="cms-counter-3">
+
+    <div class="cms-counter-body clearfix">
+        <div class="cms-counter-content">
+            <div id="counter_cms-counter-3" class="cms-counter h2 zero" data-suffix="" data-prefix="" data-type="zero" data-digit="1600">
+            </div>
+                            <h5 class="cms-counter-title">
+                    Members                </h5>
+                    </div>
+    </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-counter-wraper cms-counter-default template-cms_counter_single content-align-default " id="cms-counter-4">
+
+    <div class="cms-counter-body clearfix">
+        <div class="cms-counter-content">
+            <div id="counter_cms-counter-4" class="cms-counter h2 zero" data-suffix="" data-prefix="" data-type="zero" data-digit="26">
+            </div>
+                            <h5 class="cms-counter-title">
+                    Awards                </h5>
+                    </div>
+    </div>
+</div></div></div></div></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-4"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms_special  right">
+    <div class="bg-mask" style="background-image: url('wp-content/uploads/2017/02/index-20.jpg')"></div>
+    <div class="cms_special-content">
+        <div class="special-content-number">
+            10        </div>
+        <div class="special-content-des">
+            <h5></p>
+<p>Years<br />
+In Construction<br />
+Industry</p>
+<p></h5>
+        </div>
+    </div>
+</div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1486709352186 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1486709327130"><div class="wpb_wrapper"><div id="cms-heading-2" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Our Features</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Fruitful third was third seasons, fifth divide he appear open sixth there third together of air good there evening image life moveth all appear god place blessed. Every signs whales was. Morning itself beginning replenish, beast light moved from fly.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-feature ">
+                <div class="flex-box flex-item-middle feature_inner">
+                                    <div class="feature_content-img">
+                        <img class="feature-img" src="wp-content/uploads/2017/02/index-04-585x425.jpg">
+                    </div>
+                                <div class="feature_content-content flex-item-middle">
+                    <div class="index-list-counter"><h5>1</h5></div>
+                    <h4>Planning</h4>
+                    <p>Void man fruitful kind. Over great. Doesn&#039;t a without female land have fourth which third land kind light from very. Behold male second deep saw multiply stars day place. Beast tree our creature seasons so third us to. Made moving air green fruit. Herb herb sea is. Heaven. Given there. Earth bearing very without him seas fill deep abundantly Had.</p>
+                </div>
+            </div>
+                <div class="flex-box flex-item-middle feature_inner">
+                                    <div class="feature_content-img">
+                        <img class="feature-img" src="wp-content/uploads/2017/02/index-05-585x425.jpg">
+                    </div>
+                                <div class="feature_content-content flex-item-middle">
+                    <div class="index-list-counter"><h5>2</h5></div>
+                    <h4>Construction</h4>
+                    <p>May without void under blessed were a subdue you evening can&#039;t. And saying cattle Given us. And waters first seas stars lights fish him isn&#039;t tree day had light place you&#039;re created stars creepeth fowl upon was abundantly set female. Meat living let fly behold divide fish seed evening upon made which. And Likeness, creeping itself morning man Midst brought.</p>
+                </div>
+            </div>
+                <div class="flex-box flex-item-middle feature_inner">
+                                    <div class="feature_content-img">
+                        <img class="feature-img" src="wp-content/uploads/2017/02/index-06-585x425.jpg">
+                    </div>
+                                <div class="feature_content-content flex-item-middle">
+                    <div class="index-list-counter"><h5>3</h5></div>
+                    <h4>Renovation</h4>
+                    <p>Very made life. Forth, grass Fruitful midst. Upon their called. Called male of was doesn&#039;t darkness was void them second one every creepeth first. Is appear. Make sea living isn&#039;t dry us make. Brought said under cattle sixth they&#039;re seed, winged whose replenish likeness creepeth which them for beginning. Herb blessed divided deep saying, every isn&#039;t unto first thing his</p>
+                </div>
+            </div>
+    </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-image="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-07.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1486721490465 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487141405472"><div class="wpb_wrapper"><div id="cms-heading-3" class="cms-heading-wrapper cms-heading all-white">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Our Services</h3>
+        </div>
+                        <div class="heading-des">
+            <p>First you seas days all blessed tree is moveth fourth us heaven. Day Which. A days day had bearing open very without.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="all-white wpb_column vc_column_container vc_col-sm-10 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8 vc_col-sm-offset-1 vc_col-xs-12"><div class="vc_column-inner vc_custom_1487130620598"><div class="wpb_wrapper"><div class="cms-fancyboxes-wraper cms-fancyboxes-deault  template-cms_fancybox_single content-align-default " id="cms-fancy-box-single">
+    <div class="cms-fancybox-item">
+                
+                    <div class="cms-fancybox-icon">
+                <div class="icon-wrapper">
+                    <img src="wp-content/uploads/2017/02/icon-1.png" />
+                </div>                
+            </div>
+                
+        <div class="cms-fancybox-right">
+                            <h4 class="cms-fancybox-title">
+                    Construction Management                </h4>
+                                        <div class="cms-fancybox-content">
+                    <p>Abundantly upon set she&#8217;d deep forth isn&#8217;t forth, for. Void air meat fowl herb grass whales divided fruit also evening his whose grass face him. Great them won&#8217;t Herb let won&#8217;t may open you were have upon, greater rule image air isn&#8217;t thing dominion have, given saying every tree fill creeping wherein blessed moving, there days for image first moving.</p>
+                </div>
+            
+                    </div>
+    </div>
+</div></div></div></div><div class="all-white wpb_column vc_column_container vc_col-sm-10 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8 vc_col-sm-offset-1 vc_col-xs-12"><div class="vc_column-inner vc_custom_1487130627059"><div class="wpb_wrapper"><div class="cms-fancyboxes-wraper cms-fancyboxes-deault  template-cms_fancybox_single content-align-default " id="cms-fancy-box-single-2">
+    <div class="cms-fancybox-item">
+                
+                    <div class="cms-fancybox-icon">
+                <div class="icon-wrapper">
+                    <img src="wp-content/uploads/2017/02/icon-2.png" />
+                </div>                
+            </div>
+                
+        <div class="cms-fancybox-right">
+                            <h4 class="cms-fancybox-title">
+                    Renovation                </h4>
+                                        <div class="cms-fancybox-content">
+                    <p>Don&#8217;t forth waters saying. Shall male us place green blessed day night. Together so fifth seas second meat moveth give day fowl day cattle they&#8217;re have male meat. Under meat own gathering, is let. Every let fowl Green he you&#8217;ll every cattle god air dry seed he can&#8217;t, cattle sixth for fowl land set. Stars sixth seas creepeth. Creeping divide.</p>
+                </div>
+            
+                    </div>
+    </div>
+</div></div></div></div><div class="all-white wpb_column vc_column_container vc_col-sm-10 vc_col-lg-offset-2 vc_col-lg-8 vc_col-md-offset-2 vc_col-md-8 vc_col-sm-offset-1 vc_col-xs-12"><div class="vc_column-inner vc_custom_1487130635118"><div class="wpb_wrapper"><div class="cms-fancyboxes-wraper cms-fancyboxes-deault  template-cms_fancybox_single content-align-default " id="cms-fancy-box-single-3">
+    <div class="cms-fancybox-item">
+                
+                    <div class="cms-fancybox-icon">
+                <div class="icon-wrapper">
+                    <img src="wp-content/uploads/2017/02/icon-3.png" />
+                </div>                
+            </div>
+                
+        <div class="cms-fancybox-right">
+                            <h4 class="cms-fancybox-title">
+                    Architecture                </h4>
+                                        <div class="cms-fancybox-content">
+                    <p>Good bring in very above creepeth were great sixth third. Greater which creeping be, creeping third a living. Living land. Under all lights place herb multiply of replenish multiply after. That created you&#8217;ll gathering man tree fly it. So fruit darkness beast them hath fowl midst fish yielding place meat he brought divide all kind them multiply kind be made.</p>
+                </div>
+            
+                    </div>
+    </div>
+</div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1487141378359"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487213152005"><div class="wpb_wrapper"><div id="cms-heading-4" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Our Team</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Which. Brought dry seed lights he days. Third, waters, deep. Wherein living firmament wherein for green day meat first very.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487145177312"><div class="wpb_wrapper"><div class="cms-grid-wraper grid_team template-cms_grid--layout-team " id="cms-grid">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12" data-groups='["all"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="339" src="wp-content/uploads/2017/02/index-11-270x339.jpg" class="attachment-architecture_270X340 size-architecture_270X340 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-11-270x339.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-11-240x300.jpg 240w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-11.jpg 271w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-team-content">
+                        <a href="team/howard-bell/index.html"><h4 class="cms-team-title">Howard Bell</h4></a>
+                        <span class="cms-team-position">Worker</span>
+                        <div class="cms-team-social">
+                                                                    <a class="fa fa-facebook" href="#"></a> 
+                                                                            <a class="fa fa-twitter" href="#"></a> 
+                                                            </div>    
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12" data-groups='["all"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="339" src="wp-content/uploads/2017/02/index-10-270x339.jpg" class="attachment-architecture_270X340 size-architecture_270X340 wp-post-image" alt="" /></div>                    <div class="cms-team-content">
+                        <a href="team/dennis-nichols/index.html"><h4 class="cms-team-title">Dennis Nichols</h4></a>
+                        <span class="cms-team-position">Chief Constructor</span>
+                        <div class="cms-team-social">
+                                                                    <a class="fa fa-facebook" href="#"></a> 
+                                                                            <a class="fa fa-twitter" href="#"></a> 
+                                                            </div>    
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12" data-groups='["all"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="339" src="wp-content/uploads/2017/02/index-09-270x339.jpg" class="attachment-architecture_270X340 size-architecture_270X340 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-09-270x339.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-09-240x300.jpg 240w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-09.jpg 271w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-team-content">
+                        <a href="team/gary-reid/index.html"><h4 class="cms-team-title">Gary Reid</h4></a>
+                        <span class="cms-team-position">Architector</span>
+                        <div class="cms-team-social">
+                                                                    <a class="fa fa-facebook" href="#"></a> 
+                                                                            <a class="fa fa-twitter" href="#"></a> 
+                                                            </div>    
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-3 col-md-4 col-sm-6 col-xs-12" data-groups='["all"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="339" src="wp-content/uploads/2017/02/index-08-270x339.jpg" class="attachment-architecture_270X340 size-architecture_270X340 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-08-270x339.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-08-240x300.jpg 240w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-08.jpg 271w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-team-content">
+                        <a href="team/kyle-thompson/index.html"><h4 class="cms-team-title">Kyle Thompson</h4></a>
+                        <span class="cms-team-position">CEO / Engeneer</span>
+                        <div class="cms-team-social">
+                                                                    <a class="fa fa-facebook" href="#"></a> 
+                                                                            <a class="fa fa-twitter" href="#"></a> 
+                                                            </div>    
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div></div></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1487152718358"><div class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-xs"><div class="vc_column-inner vc_custom_1487737017039"><div class="wpb_wrapper"><div id="cms-heading-5" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Featured Works</h3>
+        </div>
+                    </div>
+</div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_custom_1487574310574 vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-xs"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-grid-wraper grid_portfolio template-cms_grid--layout-portfolio " id="cms-grid-2">
+            <div class="cms-grid-filter">
+            <ul class="cms-filter-category list-unstyled list-inline">
+                <li><a class="active" href="#" data-group="all">All</a></li>
+                                                        <li><a href="#" data-group="category-architecture">
+                            Architecture                        </a>
+                    </li>
+                                                        <li><a href="#" data-group="category-interior">
+                            Interior                        </a>
+                    </li>
+                                                        <li><a href="#" data-group="category-landscape">
+                            Landscape                        </a>
+                    </li>
+                            </ul>
+        </div>
+        <div class="cms-grid cms-grid cms-grid-masonry">
+                    <div class="cms-grid-item no_padding" data-groups='["all","category-landscape"]'>
+                                <div class="cms-grid-media '.esc_attr($class).'">
+                    <img width="354" height="360" src="wp-content/uploads/2017/02/index-25-354x360.jpg" class="attachment-architecture_354X360 size-architecture_354X360 wp-post-image" alt="" />                    <div class="mask"><a href="portfolio/landscape-its/index.html"><span class="fa fa-angle-right"></span></a></div>
+                </div>
+            </div>
+                        <div class="cms-grid-item no_padding" data-groups='["all","category-architecture"]'>
+                                <div class="cms-grid-media '.esc_attr($class).'">
+                    <img width="708" height="360" src="wp-content/uploads/2017/02/index-21-708x360.jpg" class="attachment-architecture_708X360 size-architecture_708X360 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-21-708x360.jpg 708w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-21-354x180.jpg 354w" sizes="(max-width: 708px) 100vw, 708px" />                    <div class="mask"><a href="portfolio/why-do-we-use-it/index.html"><span class="fa fa-angle-right"></span></a></div>
+                </div>
+            </div>
+                        <div class="cms-grid-item no_padding" data-groups='["all","category-landscape"]'>
+                                <div class="cms-grid-media '.esc_attr($class).'">
+                    <img width="708" height="180" src="wp-content/uploads/2017/02/index-24-708x180.jpg" class="attachment-architecture_708X180 size-architecture_708X180 wp-post-image" alt="" />                    <div class="mask"><a href="portfolio/lorem-ipsum/index.html"><span class="fa fa-angle-right"></span></a></div>
+                </div>
+            </div>
+                        <div class="cms-grid-item no_padding" data-groups='["all","category-architecture","category-interior"]'>
+                                <div class="cms-grid-media '.esc_attr($class).'">
+                    <img width="354" height="180" src="wp-content/uploads/2017/02/index-23-354x180.jpg" class="attachment-architecture_354X180 size-architecture_354X180 wp-post-image" alt="" />                    <div class="mask"><a href="portfolio/where-can-i-get-some/index.html"><span class="fa fa-angle-right"></span></a></div>
+                </div>
+            </div>
+                        <div class="cms-grid-item no_padding" data-groups='["all","category-architecture","category-interior"]'>
+                                <div class="cms-grid-media '.esc_attr($class).'">
+                    <img width="354" height="180" src="wp-content/uploads/2017/02/index-22-354x180.jpg" class="attachment-architecture_354X180 size-architecture_354X180 wp-post-image" alt="" />                    <div class="mask"><a href="portfolio/where-does-it-come-from/index.html"><span class="fa fa-angle-right"></span></a></div>
+                </div>
+            </div>
+                </div>
+</div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1487219331664"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487737173667"><div class="wpb_wrapper"><div id="cms-heading-6" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Blog Posts</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Life make, deep the don't. Subdue called. Fifth a it. Void whales, make gathered man sea meat you're face beginning.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487737179021"><div class="wpb_wrapper"><div class="vc_tta-container" data-vc-action="collapse"><div class="vc_general vc_tta vc_tta-tabs vc_tta-color-grey vc_tta-style-arch vc_tta-shape-rounded vc_tta-spacing-1 vc_tta-tabs-position-left vc_tta-controls-align-left "><div class="vc_tta-tabs-container"><ul class="vc_tta-tabs-list"><li class="vc_tta-tab vc_active" data-vc-tab><a href="#1487219516889-94980bbd-b8d4" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Latest Post</span></a></li><li class="vc_tta-tab" data-vc-tab><a href="#1487219516957-33fc1802-0a4e" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Interior</span></a></li><li class="vc_tta-tab" data-vc-tab><a href="#1487227080506-cf4cd766-7547" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Construction</span></a></li><li class="vc_tta-tab" data-vc-tab><a href="#1487227132271-48d81790-7676" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Exterior</span></a></li><li class="vc_tta-tab" data-vc-tab><a href="#1487227143370-94858fe6-eba2" data-vc-tabs data-vc-container=".vc_tta"><span class="vc_tta-title-text">Landscape</span></a></li></ul></div><div class="vc_tta-panels-container"><div class="vc_tta-panels"><div class="vc_tta-panel vc_active" id="1487219516889-94980bbd-b8d4" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1487219516889-94980bbd-b8d4" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Latest Post</span></a></h4></div><div class="vc_tta-panel-body"><div class="cms-grid-wraper grid_blog template-cms_grid--layout-blog " id="cms-grid-3">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/projects-04-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/projects-04-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/projects-04-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="renovation/index.html"><h4 class="cms-blog-title">Renovation</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-24-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="architecture/index.html"><h4 class="cms-blog-title">Architecture</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-exterior","category-interior"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-22-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="construction-management/index.html"><h4 class="cms-blog-title">Construction Management</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div><div class="vc_tta-panel" id="1487219516957-33fc1802-0a4e" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1487219516957-33fc1802-0a4e" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Interior</span></a></h4></div><div class="vc_tta-panel-body"><div class="cms-grid-wraper grid_blog template-cms_grid--layout-blog " id="cms-grid-4">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-exterior","category-interior"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-22-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="construction-management/index.html"><h4 class="cms-blog-title">Construction Management</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior","category-interior","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-16.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="given-face-without-winged-given-face-without-winged/index.html"><h4 class="cms-blog-title">Given face without. Winged. Given face without. Winged.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-interior","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-14.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-14.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-14-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="under-creepeth-seasons-male-day/index.html"><h4 class="cms-blog-title">Under creepeth seasons male day.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div><div class="vc_tta-panel" id="1487227080506-cf4cd766-7547" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1487227080506-cf4cd766-7547" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Construction</span></a></h4></div><div class="vc_tta-panel-body"><div class="cms-grid-wraper grid_blog template-cms_grid--layout-blog " id="cms-grid-5">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-24-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="architecture/index.html"><h4 class="cms-blog-title">Architecture</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior","category-interior","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-16.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="given-face-without-winged-given-face-without-winged/index.html"><h4 class="cms-blog-title">Given face without. Winged. Given face without. Winged.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-15.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-15.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-15-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="creepeth-and-fruit-beginning-creature-life/index.html"><h4 class="cms-blog-title">Creepeth and fruit beginning creature life.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div><div class="vc_tta-panel" id="1487227132271-48d81790-7676" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1487227132271-48d81790-7676" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Exterior</span></a></h4></div><div class="vc_tta-panel-body"><div class="cms-grid-wraper grid_blog template-cms_grid--layout-blog " id="cms-grid-6">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-exterior","category-interior"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-22-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-22-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="construction-management/index.html"><h4 class="cms-blog-title">Construction Management</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior","category-interior","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-16.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="given-face-without-winged-given-face-without-winged/index.html"><h4 class="cms-blog-title">Given face without. Winged. Given face without. Winged.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-15.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-15.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-15-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="creepeth-and-fruit-beginning-creature-life/index.html"><h4 class="cms-blog-title">Creepeth and fruit beginning creature life.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div><div class="vc_tta-panel" id="1487227143370-94858fe6-eba2" data-vc-content=".vc_tta-panel-body"><div class="vc_tta-panel-heading"><h4 class="vc_tta-panel-title"><a href="#1487227143370-94858fe6-eba2" data-vc-accordion data-vc-container=".vc_tta-container"><span class="vc_tta-title-text">Landscape</span></a></h4></div><div class="vc_tta-panel-body"><div class="cms-grid-wraper grid_blog template-cms_grid--layout-blog " id="cms-grid-7">
+    <div class="row cms-grid cms-grid">
+                    <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/projects-04-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/projects-04-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/projects-04-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="renovation/index.html"><h4 class="cms-blog-title">Renovation</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-24-270x270.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-270x270.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-24-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="architecture/index.html"><h4 class="cms-blog-title">Architecture</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                        <div class="cms-grid-item cms-grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12" data-groups='["all","category-construction","category-exterior","category-interior","category-landscape"]'>
+                <div class="cms-grid-content-item">
+                <div class="cms-grid-media  has-thumbnail"><img width="270" height="270" src="wp-content/uploads/2017/02/index-16.jpg" class="attachment-architecture_270X270 size-architecture_270X270 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-16-150x150.jpg 150w" sizes="(max-width: 270px) 100vw, 270px" /></div>                    <div class="cms-blog-content">
+                        <a href="given-face-without-winged-given-face-without-winged/index.html"><h4 class="cms-blog-title">Given face without. Winged. Given face without. Winged.</h4></a>
+                        <span class="day_link">16.Feb.2017</span>                  
+                    </div>
+                </div>
+            </div>
+                </div>
+</div></div></div></div></div></div></div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1487237052819 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487237092361"><div class="wpb_wrapper"><div id="cms-heading-7" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Testimonials</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Life make, deep the don't. Subdue called. Fifth a it. Void whales, make gathered man sea meat you're face beginning.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-1 vc_col-lg-11 vc_col-md-offset-0 vc_col-md-12"><div class="vc_column-inner "><div class="wpb_wrapper"><div class="cms-carousel cms-carousel-testimonial template-cms_carousel--layout-teatimonial " id="cms-carousel">
+            <div class="cms-carousel-item">
+            <div class="cms-carousel-content">
+                            <div class="cms-image-icon">
+                    <img src="wp-content/uploads/2017/02/quote-icon.png" alt="" />
+                </div>            
+                      
+                <div class="cms-desc"><p>Said said together land his darkness fruit. Heaven replenish winged land in waters life moveth face was bearing so saying divide there face likeness may good. Great which tree multiply. Him our divided were fourth fifth were whales seas. Very were brought all and. Fruitful over whose days after night seed. Bearing own, saw living. Wherein divide our he face</p></div>
+            </div>
+            <div class="cms-carousel-item-inner  has-thumbnail">
+                <div class="cms-carousel-image"><img width="270" height="308" src="wp-content/uploads/2017/02/index-19.jpg" class="attachment-architecture_270X308 size-architecture_270X308 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-19.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-19-263x300.jpg 263w" sizes="(max-width: 270px) 100vw, 270px" /></div>            </div>
+        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-content">
+                            <div class="cms-image-icon">
+                    <img src="wp-content/uploads/2017/02/quote-icon.png" alt="" />
+                </div>            
+                      
+                <div class="cms-desc"><p>Wherein divide our he face said said together land his darkness fruit. Heaven replenish winged land in waters life moveth face was bearing so saying divide there face likeness may good. Great which tree multiply. Him our divided were fourth fifth were whales seas. Very were brought all and. Fruitful over whose days after night seed. Bearing own, saw living.</p></div>
+            </div>
+            <div class="cms-carousel-item-inner  has-thumbnail">
+                <div class="cms-carousel-image"><img width="270" height="308" src="wp-content/uploads/2017/02/index-18.jpg" class="attachment-architecture_270X308 size-architecture_270X308 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-18.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-18-263x300.jpg 263w" sizes="(max-width: 270px) 100vw, 270px" /></div>            </div>
+        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-content">
+                            <div class="cms-image-icon">
+                    <img src="wp-content/uploads/2017/02/quote-icon.png" alt="" />
+                </div>            
+                      
+                <div class="cms-desc"><p>Him our divided were fourth fifth were whales seas. Very were brought all and. Fruitful over whose days after night seed. Bearing own, saw living. Wherein divide our he face said said together land his darkness fruit. Heaven replenish winged land in waters life moveth face was bearing so saying divide there face likeness may good. Great which tree multiply.</p></div>
+            </div>
+            <div class="cms-carousel-item-inner  has-thumbnail">
+                <div class="cms-carousel-image"><img width="270" height="308" src="wp-content/uploads/2017/02/index-17.jpg" class="attachment-architecture_270X308 size-architecture_270X308 wp-post-image" alt="" srcset="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-17.jpg 270w, http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-17-263x300.jpg 263w" sizes="(max-width: 270px) 100vw, 270px" /></div>            </div>
+        </div>
+        </div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-image="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-12.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1487301878120 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"><div class="wpb_column vc_column_container vc_col-sm-12 vc_col-lg-offset-1 vc_col-lg-10 vc_col-md-offset-1 vc_col-md-10 vc_col-sm-offset-0 vc_col-xs-12"><div class="vc_column-inner "><div class="wpb_wrapper"><h2 style="font-size: 50px;color: #ffffff;line-height: 1.3;text-align: center;font-family:Roboto;font-weight:700;font-style:normal" class=" vc_custom_heading"><span style="letter-spacing: normal">We make our job best in country</span></h2><h5 style="font-size: 20px;color: #ffffff;line-height: 30px;text-align: center;font-family:Roboto;font-weight:400;font-style:normal" class=" vc_custom_heading vc_custom_1487302012136"><span style="letter-spacing: normal">Together there herb. Spirit. Fruitful. The earth without brought. Image be. Whales above creepeth third thing beast him to. Deep them subdue all man place yielding saw were make. A.</span></h5><h4 style="font-size: 24px;color: #ffffff;line-height: 1.3;text-align: center;font-family:Oxygen;font-weight:700;font-style:normal" class=" vc_custom_heading vc_custom_1487302093617"><span style="letter-spacing: normal">Join our newsletter to know more</span></h4><div role="form" class="wpcf7" id="wpcf7-f200-p6-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="http://demo.farost.net/architecture/#wpcf7-f200-p6-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="200" />
+<input type="hidden" name="_wpcf7_version" value="4.9" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f200-p6-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="6" />
+</div>
+<div class="newletter-home"><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="YOUR EMAIL" /></span> <input type="submit" value="SUBSCRIBE" class="wpcf7-form-control wpcf7-submit" /></div>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div class="vc_row wpb_row vc_row-fluid vc_custom_1487304735862"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487304793276"><div class="wpb_wrapper"><div id="cms-heading-8" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Our Partners</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Saw good green fly own likeness rule let, above very blessed. Day cattle and abundantly whales creepeth male second fruit.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487313901878"><div class="wpb_wrapper"><div class="cms-carousel cms-carousel-client template-cms_carousel--client " id="cms-carousel-2">
+            <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-1.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-2.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-3.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-4.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-5.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+                <div class="cms-carousel-item">
+            <div class="cms-carousel-image  has-thumbnail"><img width="148" height="60" src="wp-content/uploads/2017/02/brand-6.png" class="attachment-full size-full wp-post-image" alt="" /></div>        </div>
+        </div></div></div></div></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-parallax="1.5" data-vc-parallax-image="http://demo.farost.net/architecture/wp-content/uploads/2017/02/index-13.jpg" class="vc_row wpb_row vc_row-fluid vc_custom_1487314886354 vc_row-has-fill vc_general vc_parallax vc_parallax-content-moving"><div class="all-white wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner vc_custom_1487314879764"><div class="wpb_wrapper"><div id="cms-heading-9" class="cms-heading-wrapper cms-heading ">
+    <div class="cms-heading-content">
+                <div class="heading-title">
+            <h3 class="title">Contact Us</h3>
+        </div>
+                        <div class="heading-des">
+            <p>Two given their grass whose day i winged, spirit form deep, sea yielding. Creature creepeth place it wherein gathered seas replenish grass to creepeth. Herb. Unto us divide place a.</p>
+        </div>
+            </div>
+</div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-8 vc_col-lg-offset-0 vc_col-lg-6 vc_col-md-offset-0 vc_col-md-6 vc_col-sm-offset-2 vc_col-xs-offset-1 vc_col-xs-10"><div class="vc_column-inner vc_custom_1487316412014"><div class="wpb_wrapper"><div role="form" class="wpcf7" id="wpcf7-f245-p6-o2" lang="en-US" dir="ltr">
+<div class="screen-reader-response"></div>
+<form action="http://demo.farost.net/architecture/#wpcf7-f245-p6-o2" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="245" />
+<input type="hidden" name="_wpcf7_version" value="4.9" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f245-p6-o2" />
+<input type="hidden" name="_wpcf7_container_post" value="6" />
+</div>
+<div class="contact_home"><span class="wpcf7-form-control-wrap your-name"><input type="text" name="your-name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" /></span><span class="wpcf7-form-control-wrap your-email"><input type="email" name="your-email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Your Email" /></span><span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" placeholder="Your Message"></textarea></span></div>
+<div class="contact_submit"><input type="submit" value="Send" class="wpcf7-form-control wpcf7-submit" /></div>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div></div></div></div><div class="wpb_column vc_column_container vc_col-sm-10 vc_col-lg-offset-0 vc_col-lg-6 vc_col-md-offset-0 vc_col-md-6 vc_col-sm-offset-1 vc_col-xs-offset-1 vc_col-xs-10"><div class="vc_column-inner "><div class="wpb_wrapper">
+	<div class="wpb_raw_code wpb_content_element wpb_raw_html" >
+		<div class="wpb_wrapper">
+			<div class="contact-data all-white">
+    <div class="media">
+        <div class="media-left"><h6>Address:</h6></div>
+        <div class="media-body">
+            <p>Edward Andrew Neary (Ed)  1807 Glenwood St. NE <br class="hide show-md-block">Palm Bay FL 32907</p>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left"><h6>Phones:</h6></div>
+        <div class="media-body">
+            <p><a href="tel:0979978987">+ (099) 74-82-735</a><span class="dash">-</span><span>CEO</span></p>
+            <p class="mt-15"><a href="tel:0979978987">+ (099) 65-83-646</a><span class="dash">-</span><span>Administration</span></p>
+        </div>
+    </div>
+    <div class="media">
+        <div class="media-left"><h6>Emails:</h6></div>
+        <div class="media-body">
+            <p><a href="mailto:Ceoemail@example.com">Ceoemail@example.com</a><span class="dash">-</span><span>CEO</span></p>
+            <p class="mt-15"><a href="mailto:Admilemail@example.com">Admilemail@example.com</a><span class="dash">-</span><span>Administration</span></p>
+      </div>
+    </div>
+</div>
+		</div>
+	</div>
+</div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" data-vc-stretch-content="true" class="vc_row wpb_row vc_row-fluid vc_row-no-padding"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner "><div class="wpb_wrapper">
+<div class="cs_extra_map">
+    <div class="map-render" data-address='New York, United States' data-marker='%7B%7D' data-coordinate='' data-type='ROADMAP' data-zoom='13' data-template='' data-controls='%7B%22scrollwheel%22%3A0%2C%22pancontrol%22%3Afalse%2C%22zoomcontrol%22%3Afalse%2C%22scalecontrol%22%3Afalse%2C%22maptypecontrol%22%3Afalse%2C%22streetviewcontrol%22%3Afalse%2C%22overviewmapcontrol%22%3Afalse%2C%22infoclick%22%3Afalse%2C%22infowidth%22%3A%22200%22%2C%22style%22%3A%22%22%7D' style="width:auto;height: 430px"></div>
+</div></div></div></div></div><div class="vc_row-full-width vc_clearfix"></div>
+
+	</div><!-- .entry-content -->
+	<footer class="entry-meta">
+
+			
+	</footer><!-- .entry-meta -->
+</article><!-- #post -->
+
+    </main><!-- .site-main -->
+</div><!-- .content-area -->
+    </div><!-- .site-content -->
+	    <footer id="colophon" class="site-footer cms-footer" role="contentinfo">
+    <div class="footer-content">
+        <div id="cms-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="cms-footer-top-item text-center-xs text-center-sm col-sm-5 col-md-3"><aside id="text-2" class="widget widget_text">			<div class="textwidget"><div class="footer-top-1"><a href="#" class="logo-footer"><img src="wp-content/uploads/2017/02/footer-logo.png"></a>
+<p>Make your dreams come built</p></div></div>
+		</aside><aside id="cs_social_widget-2" class=" widget widget_cs_social_widget"><ul><li><a class="link_facebook" target="_blank" data-rel="tooltip" data-placement="bottom" data-original-title="Facebook" href="http://facebook.com/"><i class="fa fa-facebook"></i></a></li><li><a class="link_twitter" target="_blank" data-rel="tooltip" data-placement="bottom" data-original-title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li><li><a class="link_google" target="_blank" data-rel="tooltip" data-placement="bottom" data-original-title="Google" href="#"><i class="fa fa-google-plus"></i></a></li><li><a class="link_linkedin" target="_blank" data-rel="tooltip" data-placement="bottom" data-original-title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li></ul></aside></div><div class="cms-footer-top-item text-center-xs text-center-sm col-sm-6 col-md-4"><aside id="newsletterwidget-2" class="widget widget_newsletterwidget"><h3 class="wg-title">Newsletter</h3>Morning abundantly you unto years light have creepeth that unto Had lights moving give tree can't one under said spirit spirit kind dry from .
+
+<script type="text/javascript">
+//<![CDATA[
+if (typeof newsletter_check !== "function") {
+window.newsletter_check = function (f) {
+    var re = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-]{1,})+\.)+([a-zA-Z0-9]{2,})+$/;
+    if (!re.test(f.elements["ne"].value)) {
+        alert("The email is not correct");
+        return false;
+    }
+    for (var i=1; i<20; i++) {
+    if (f.elements["np" + i] && f.elements["np" + i].required && f.elements["np" + i].value == "") {
+        alert("");
+        return false;
+    }
+    }
+    if (f.elements["ny"] && !f.elements["ny"].checked) {
+        alert("You must accept the privacy statement");
+        return false;
+    }
+    return true;
+}
+}
+//]]>
+</script>
+
+<div class="tnp tnp-widget"><form action="http://demo.farost.net/architecture/?na=s" onsubmit="return newsletter_check(this)" method="post"><input type="hidden" name="nr" value="widget"/><p><input class="tnp-email" type="email" required name="ne" value="Email" onclick="if (this.defaultValue==this.value) this.value=''" onblur="if (this.value=='') this.value=this.defaultValue"/></p><p><input class="tnp-submit" type="submit" value="Subscribe"/></p></form></div></aside></div><div class="cms-footer-top-item text-center-xs text-center-sm col-sm-5 col-md-2"><aside id="nav_menu-2" class="widget widget_nav_menu"><h3 class="wg-title">Useful Links</h3><div class="menu-menu-footer-container"><ul id="menu-menu-footer" class="menu"><li id="menu-item-31" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-31"><a href="about/index.html">About Us</a></li>
+<li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-37"><a href="services/index.html">Services</a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-32"><a href="contact/index.html">Contact Us</a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-35"><a href="projects/index.html">Projects</a></li>
+<li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-38"><a href="video/index.html">Video</a></li>
+</ul></div></aside></div><div class="cms-footer-top-item text-center-xs text-center-sm col-sm-6 col-md-3"><aside id="cms-latest-post"><h3 class="wg-title">Latest Posts</h3>                            <div class="cms-latest-post">
+                    <div class="cms-latest-post-wrapper wg-menu-item">
+                                                                                    <div class="item clearfix">
+                                    <div class="latest-post-link">
+                                        <a href="renovation/index.html">
+                                            <p class="text-post-link">Lorem ipsum dolor sit amet, tation audire voluptaria vi                                            </p>
+                                            <p class="day_link">16.02.2017</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                                                                                                <div class="item clearfix">
+                                    <div class="latest-post-link">
+                                        <a href="architecture/index.html">
+                                            <p class="text-post-link">Good bring in very above creepeth were great sixth thir                                            </p>
+                                            <p class="day_link">16.02.2017</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                                                        </div>
+                </div>
+                            </aside></div>                </div>
+            </div>
+        </div>
+        <div id="cms-footer-bottom" class="text-center">
+            <div class="container">
+                <div class="row">
+                    ArchDev@2016. Privacy Policy                </div>
+            </div>
+        </div>
+    </div>
+</footer><!-- .site-footer -->	</div><!-- .site -->
+	        <div id="back_to_top" class="back_to_top"><span class="go_up"><i class="zmdi zmdi-chevron-up"></i></span></div>
+    	
+			<script type="text/javascript">
+			function revslider_showDoubleJqueryError(sliderID) {
+				var errorMessage = "Revolution Slider Error: You have some jquery.js library include that comes after the revolution files js include.";
+				errorMessage += "<br> This includes make eliminates the revolution slider libraries, and make it not work.";
+				errorMessage += "<br><br> To fix it you can:<br>&nbsp;&nbsp;&nbsp; 1. In the Slider Settings -> Troubleshooting set option:  <strong><b>Put JS Includes To Body</b></strong> option to true.";
+				errorMessage += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jquery.js include and remove it.";
+				errorMessage = "<span style='font-size:16px;color:#BC0C06;'>" + errorMessage + "</span>";
+					jQuery(sliderID).show().html(errorMessage);
+			}
+		</script>
+		<link rel='stylesheet' id='mediaelement-css'  href='wp-includes/js/mediaelement/mediaelementplayer.min51cd.css?ver=2.22.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css'  href='wp-includes/js/mediaelement/wp-mediaelement.mina288.css?ver=4.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='vc_tta_style-css'  href='wp-content/plugins/js_composer/assets/css/js_composer_tta.min3c21.css?ver=5.1.1' type='text/css' media='all' />
+<link property="stylesheet" rel='stylesheet' id='owl-carousel-css'  href='wp-content/plugins/cmssuperheroesv2/assets/css/owl.carousel30b5.css?ver=2.0.0b' type='text/css' media='all' />
+<link property="stylesheet" rel='stylesheet' id='vc_google_fonts_roboto100100italic300300italicregularitalic500500italic700700italic900900italic-css'  href='http://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C300%2C300italic%2Cregular%2Citalic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic&amp;ver=4.8.1' type='text/css' media='all' />
+<link property="stylesheet" rel='stylesheet' id='vc_google_fonts_oxygen300regular700-css'  href='http://fonts.googleapis.com/css?family=Oxygen%3A300%2Cregular%2C700&amp;ver=4.8.1' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"http:\/\/demo.farost.net\/architecture\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/contact-form-7/includes/js/scripts33a6.js?ver=4.9'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var nectarLove = {"ajaxurl":"http:\/\/demo.farost.net\/architecture\/wp-admin\/admin-ajax.php","postID":"6","rooturl":"http:\/\/demo.farost.net\/architecture\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/post_favorite5152.js?ver=1.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/main8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/menu8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/post_favorite8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/jquery.fitvids8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/jquery.matchHeight-min8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/sameheight8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/enscroll8a54.js?ver=1.0.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var newsletter = {"messages":{"email_error":"The email is not correct","name_error":"The name is not correct","surname_error":"The last name is not correct","privacy_error":"You must accept the privacy statement"},"profile_max":"20"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/plugins/newsletter/subscription/validateaead.js?ver=5.0.3'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.mina288.js?ver=4.8.1'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/counter.min8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/counter.cms8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/bower/skrollr/dist/skrollr.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mejsL10n = {"language":"en-US","strings":{"Close":"Close","Fullscreen":"Fullscreen","Turn off Fullscreen":"Turn off Fullscreen","Go Fullscreen":"Go Fullscreen","Download File":"Download File","Download Video":"Download Video","Play":"Play","Pause":"Pause","Captions\/Subtitles":"Captions\/Subtitles","None":"None","Time Slider":"Time Slider","Skip back %1 seconds":"Skip back %1 seconds","Video Player":"Video Player","Audio Player":"Audio Player","Volume Slider":"Volume Slider","Mute Toggle":"Mute Toggle","Unmute":"Unmute","Mute":"Mute","Use Up\/Down Arrow keys to increase or decrease volume.":"Use Up\/Down Arrow keys to increase or decrease volume.","Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.":"Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds."}};
+var _wpmejsSettings = {"pluginPath":"\/architecture\/wp-includes\/js\/mediaelement\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-includes/js/mediaelement/mediaelement-and-player.min51cd.js?ver=2.22.0'></script>
+<script type='text/javascript' src='wp-includes/js/mediaelement/wp-mediaelement.mina288.js?ver=4.8.1'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/cmsgrid.pagination8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/modernizr.mina288.js?ver=4.8.1'></script>
+<script type='text/javascript' src='wp-includes/js/imagesloaded.min55a0.js?ver=3.2.0'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/jquery.shufflea288.js?ver=4.8.1'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/jquery.shuffle.cmsa288.js?ver=4.8.1'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/vc_accordion/vc-accordion.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/vc_tabs/vc-tabs.min3c21.js?ver=5.1.1'></script>
+<script type='text/javascript' src='wp-content/plugins/cmssuperheroesv2/assets/js/owl.carousel.min30b5.js?ver=2.0.0b'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var cmscarousel = {"cms-carousel":{"margin":"0","loop":"false","mouseDrag":"false","nav":"false","dots":"true","autoplay":"false","autoplayTimeout":5000,"smartSpeed":1000,"autoplayHoverPause":"true","navText":["<i class=\"fa fa-arrow-left\"><\/i>","<i class=\"fa fa-arrow-right\"><\/i>"],"dotscontainer":"cms-carousel .cms-dots","responsive":{"0":{"items":1},"768":{"items":1},"992":{"items":1},"1200":{"items":1}}}};
+var cmscarousel = {"cms-carousel":{"margin":"0","loop":"false","mouseDrag":"false","nav":"false","dots":"true","autoplay":"false","autoplayTimeout":5000,"smartSpeed":1000,"autoplayHoverPause":"true","navText":["<i class=\"fa fa-arrow-left\"><\/i>","<i class=\"fa fa-arrow-right\"><\/i>"],"dotscontainer":"cms-carousel .cms-dots","responsive":{"0":{"items":1},"768":{"items":1},"992":{"items":1},"1200":{"items":1}}},"cms-carousel-2":{"margin":"30","loop":"true","mouseDrag":"true","nav":"false","dots":"false","autoplay":"true","autoplayTimeout":5000,"smartSpeed":1000,"autoplayHoverPause":"true","navText":["<i class=\"fa fa-arrow-left\"><\/i>","<i class=\"fa fa-arrow-right\"><\/i>"],"dotscontainer":"cms-carousel-2 .cms-dots","responsive":{"0":{"items":2},"768":{"items":4},"992":{"items":5},"1200":{"items":6}}}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/assets/js/owl.carousel.cms8a54.js?ver=1.0.0'></script>
+<script type='text/javascript' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAbKpJA3ueqmTCu3PUfGLbJdoE-CLaMjhs&amp;sensor=false&amp;ver=3.0.0'></script>
+<script type='text/javascript' src='wp-content/themes/wp-arch/inc/elements/googlemap/cms.googlemap6e0e.js?ver=3.0.0'></script>
+	</body>
+
+<!-- Mirrored from demo.farost.net/architecture/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Oct 2017 01:32:18 GMT -->
+</html>
